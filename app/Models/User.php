@@ -27,7 +27,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    /*
+     * 关联关系是一对一（一个 User 可以有多个）
+     */
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class);
+    }
     /**
      * The attributes that should be cast to native types.
      *
