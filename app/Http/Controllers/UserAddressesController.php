@@ -18,6 +18,34 @@ class UserAddressesController extends Controller
     {
         return view('user_addresses.create_and_edit', ['address' => new UserAddress()]);
     }
+    public function edit(UserAddress $user_address)
+    {
+        $this->authorize('own', $user_address);
+        return view('user_addresses.create_and_edit', ['address' => $user_address]);
+    }
+    public function update(UserAddress $user_address, UserAddressRequest $request)
+    {
+        $this->authorize('own', $user_address);
+        $user_address->update($request->only([
+            'province',
+            'city',
+            'district',
+            'address',
+            'zip',
+            'contact_name',
+            'contact_phone',
+        ]));
+
+        return redirect()->route('user_addresses.index');
+    }
+    public function destroy(UserAddress $user_address)
+    {
+        $this->authorize('own', $user_address);
+        $user_address->delete();
+
+        return [];
+//        return redirect()->route('user_addresses.index');
+    }
     /*
      * $request->user()  获取当前登录用户
      * user()->addresses() 获取当前用户与地址的关联关系
