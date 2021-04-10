@@ -18,10 +18,6 @@ Route::get('/', 'PagesController@root')->name('root');
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::redirect('/', '/products')->name('root');
-Route::get('products', 'ProductsController@index')->name('products.index');
-Route::get('products/{product}', 'ProductsController@show')->name('products.show');
-
 Route::group(['middleware' => ['auth']], function () {
     // 收货地址
     Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
@@ -33,9 +29,15 @@ Route::group(['middleware' => ['auth']], function () {
     // 收藏 / 取消收藏
     Route::post('products/{product}/favorite', 'ProductsController@favor')->name('products.favor');
     Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
+    Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
+
 
 
 
 
 
 });
+
+Route::redirect('/', '/products')->name('root');
+Route::get('products', 'ProductsController@index')->name('products.index');
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
