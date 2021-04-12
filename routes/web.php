@@ -30,11 +30,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('products/{product}/favorite', 'ProductsController@favor')->name('products.favor');
     Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
     Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
-
+    // 购物车
     Route::post('cart', 'CartController@add')->name('cart.add');
     Route::get('cart', 'CartController@index')->name('cart.index');
     Route::delete('cart/{sku}', 'CartController@remove')->name('cart.remove');
-
+    // 优惠券
+    Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
+    // 订单相关
     Route::post('orders', 'OrdersController@store')->name('orders.store');
     Route::get('orders', 'OrdersController@index')->name('orders.index');
     Route::get('orders/{order}', 'OrdersController@show')->name('orders.show');
@@ -43,9 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('orders/{order}/review', 'OrdersController@sendReview')->name('orders.review.store');
     Route::post('orders/{order}/apply_refund', 'OrdersController@applyRefund')->name('orders.apply_refund');
 
+    // 支付相关
     Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
-
-
     Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
 });
 
