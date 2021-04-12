@@ -47,6 +47,7 @@ class OrderService
                 ],
                 'remark'       => $remark,
                 'total_amount' => $totalAmount,
+                'type'         => Order::TYPE_NORMAL,
             ]);
             // 订单关联到当前用户
             $order->user()->associate($user);
@@ -94,6 +95,10 @@ class OrderService
     {
         // 开启事务
         $order = \DB::transaction(function () use ($amount, $sku, $user, $address) {
+            // 扣减对应 SKU 库存
+            if ($sku->decreaseStock($amount) <= 0) {
+                throw new InvalidRequestException('该商品库存不足');
+            }
             // 更新地址最后使用时间
             $address->update(['last_used_at' => Carbon::now()]);
             // 创建一个订单
@@ -106,6 +111,7 @@ class OrderService
                 ],
                 'remark'       => '',
                 'total_amount' => $sku->price * $amount,
+                'type'         => Order::TYPE_CROWDFUNDING,
             ]);
             // 订单关联到当前用户
             $order->user()->associate($user);
@@ -119,10 +125,6 @@ class OrderService
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
-            // 扣减对应 SKU 库存
-            if ($sku->decreaseStock($amount) <= 0) {
-                throw new InvalidRequestException('该商品库存不足');
-            }
 
             return $order;
         });
