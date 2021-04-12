@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use CategoriesSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminTablesSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(UserAddressesSeeder::class);
+        $this->call(CategoriesSeeder::class);
         $this->call(ProductsSeeder::class);
         $this->call(CouponCodesSeeder::class);
         $this->call(OrdersSeeder::class);
