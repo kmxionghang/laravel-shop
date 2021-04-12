@@ -9,8 +9,14 @@ use Illuminate\Support\Str;
 class Product extends Model
 {
     use HasFactory;
+    const TYPE_NORMAL = 'normal';
+    const TYPE_CROWDFUNDING = 'crowdfunding';
+    public static $typeMap = [
+        self::TYPE_NORMAL  => '普通商品',
+        self::TYPE_CROWDFUNDING => '众筹商品',
+    ];
     protected $fillable = [
-                    'title', 'category_id', 'description', 'image', 'on_sale',
+                    'title', 'category_id', 'type', 'description', 'image', 'on_sale',
                     'rating', 'sold_count', 'review_count', 'price'
     ];
     protected $casts = [
@@ -26,6 +32,12 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    // 众筹
+    public function crowdfunding()
+    {
+        return $this->hasOne(CrowdfundingProduct::class);
     }
 
     public function getImageUrlAttribute()
