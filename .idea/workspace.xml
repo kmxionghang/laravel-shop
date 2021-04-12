@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ad7655b-b384-4a8b-b756-791c497f8cb5" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CouponCodesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CouponCodesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/CloseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CloseOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CouponCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CouponCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/OrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/OrderService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/show.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ad7655b-b384-4a8b-b756-791c497f8cb5" name="默认更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +185,7 @@
       <workItem from="1617961866956" duration="325000" />
       <workItem from="1617962195100" duration="359000" />
       <workItem from="1618017249059" duration="18628000" />
-      <workItem from="1618189457399" duration="10625000" />
+      <workItem from="1618189457399" duration="10852000" />
     </task>
     <servers />
   </component>
