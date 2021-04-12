@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use CategoriesSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(AdminTablesSeeder::class);
+        $this->call(AdminUserSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(UserAddressesSeeder::class);
         $this->call(CategoriesSeeder::class);

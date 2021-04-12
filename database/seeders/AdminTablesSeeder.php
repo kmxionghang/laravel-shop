@@ -28,7 +28,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-tasks",
-                    "order" => 6,
+                    "order" => 7,
                     "parent_id" => 0,
                     "permission" => NULL,
                     "title" => "Admin",
@@ -36,7 +36,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-users",
-                    "order" => 7,
+                    "order" => 8,
                     "parent_id" => 2,
                     "permission" => NULL,
                     "title" => "Users",
@@ -44,7 +44,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-user",
-                    "order" => 8,
+                    "order" => 9,
                     "parent_id" => 2,
                     "permission" => NULL,
                     "title" => "Roles",
@@ -52,7 +52,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-ban",
-                    "order" => 9,
+                    "order" => 10,
                     "parent_id" => 2,
                     "permission" => NULL,
                     "title" => "Permission",
@@ -60,7 +60,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-bars",
-                    "order" => 10,
+                    "order" => 11,
                     "parent_id" => 2,
                     "permission" => NULL,
                     "title" => "Menu",
@@ -68,7 +68,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-history",
-                    "order" => 11,
+                    "order" => 12,
                     "parent_id" => 2,
                     "permission" => NULL,
                     "title" => "Operation log",
@@ -76,7 +76,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-users",
-                    "order" => 5,
+                    "order" => 6,
                     "parent_id" => 0,
                     "permission" => NULL,
                     "title" => "用户管理",
@@ -100,11 +100,19 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "icon" => "fa-tags",
-                    "order" => 4,
+                    "order" => 5,
                     "parent_id" => 0,
                     "permission" => NULL,
                     "title" => "优惠券管理",
                     "uri" => "/coupon_codes"
+                ],
+                [
+                    "icon" => "fa-bars",
+                    "order" => 4,
+                    "parent_id" => 0,
+                    "permission" => NULL,
+                    "title" => "分类管理",
+                    "uri" => "/categories"
                 ]
             ]
         );
@@ -231,27 +239,6 @@ class AdminTablesSeeder extends Seeder
                 ]
             ]
         );
-
-        DB::table('admin_users')->truncate();
-        DB::table('admin_users')->insert([
-            [
-                'username' => 'admin',
-                'name' => 'admin',
-                'password' => '$2y$10$HxAprechgq3E0cGFnmlgOu2Czjm.9OvHPMuhSpAf5Stc3mpmBkoxa', // admin
-            ]
-        ]);
-
-        DB::table('admin_role_users')->truncate();
-        DB::table('admin_role_users')->insert([
-            [
-                'role_id' => 1,
-                'user_id' => 1,
-            ],
-            [
-                'role_id' => 2,
-                'user_id' => 1,
-            ],
-        ]);
 
         // finish
     }
