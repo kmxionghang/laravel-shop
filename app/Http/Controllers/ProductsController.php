@@ -65,7 +65,7 @@ class ProductsController extends Controller
                 'search' => $search,
                 'order'  => $order,
             ],
-            'category' => $category ?? null,
+            'category' => $category ?? null
         ]);
     }
 
