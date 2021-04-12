@@ -8,7 +8,7 @@ class VerifyCsrfToken extends Middleware
 {
     /**
      * The URIs that should be excluded from CSRF verification.
-     *
+     * 白名单
      * @var array
      */
     protected $except = [
@@ -16,5 +16,6 @@ class VerifyCsrfToken extends Middleware
         'payment/wechat/notify',
         'payment/wechat/refund_notify',
         'installments/alipay/notify',
+        'installments/wechat/refund_notify',
     ];
 }
