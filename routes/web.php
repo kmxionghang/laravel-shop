@@ -50,6 +50,10 @@ Route::group(['middleware' => ['auth']], function () {
     // 支付相关
     Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
     Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
+
+    // 分期付款
+    Route::post('payment/{order}/installment', 'PaymentController@payByInstallment')->name('payment.installment');
+
 });
 
 Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('payment.alipay.notify');
